@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Xml.Linq;
+
 namespace LinqProgramming
 {
   class Employee
@@ -58,6 +60,7 @@ namespace LinqProgramming
   }
   class LinqDemos
   {
+    static List<Dept> deptCollection = DataComponent.GetAllDepts();
     static List<Employee> collection = DataComponent.GetAllEmployees();
     static void Main(string[] args)
     {
@@ -68,7 +71,52 @@ namespace LinqProgramming
       //displayNamesonPlace();
       //displayNamesGroupedByAddress();
       //displayNamesByAlphabet();
-      displayDistinctDeptIds();
+      //displayDistinctDeptIds();
+      //displayDeptsWithNames();
+      //displayNamesByDeptName();//using group by clause...
+      convertToXml();
+    }
+
+    //Performing LINQ operations on XML doc is called as XLINQ...
+    private static void convertToXml()
+    {
+      var elements = new XElement("AllEmployees", from emp in collection
+                                                   select new XElement("Employee", 
+                            new XElement("EmpID", emp.EmpID),
+                            new XElement("EmpName", emp.EmpName),
+                            new XElement("EmpAddress", emp.EmpAddress),
+                            new XElement("DeptID", emp.DeptId)));
+      elements.Save("AllEmployees.xml");
+    }
+
+    private static void displayNamesByDeptName()
+    {
+      var details = from emp in collection
+                    join dept in deptCollection on
+                    emp.DeptId equals dept.DeptID
+                    group new { emp.EmpName, dept.DeptName }
+                    by dept.DeptName into g
+                    orderby g.Key
+                    select g;
+      
+      foreach(var detail in details)
+      {
+        Console.WriteLine("People under " + detail.Key);
+        foreach(var info in detail)
+        {
+          Console.WriteLine($"\t{info.EmpName}");
+        }
+      } 
+    }
+
+    private static void displayDeptsWithNames()
+    {
+      var names = from emp in collection
+                  join dept in deptCollection on
+                  emp.DeptId equals dept.DeptID
+                  select new { emp.EmpName, dept.DeptName };
+      foreach(var info in names)
+        Console.WriteLine($"{info.EmpName} from {info.DeptName}");
     }
 
     private static void displayDistinctDeptIds()
