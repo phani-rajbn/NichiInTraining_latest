@@ -12,8 +12,28 @@ namespace LinqProgramming
     public int DeptId { get; set; }
   }
 
+  class Dept
+  {
+    public int DeptID { get; set; }
+    public string DeptName { get; set; }
+  }
+
   static class DataComponent
   {
+
+    public static List<Dept> GetAllDepts()
+    {
+      return new List<Dept>
+      {
+        new Dept { DeptID = 1, DeptName ="Sales" },
+        new Dept { DeptID = 2, DeptName ="Finance" },
+        new Dept { DeptID = 3, DeptName ="Admin" },
+        new Dept { DeptID = 4, DeptName ="Production" },
+        new Dept { DeptID = 5, DeptName ="Labour" },
+        new Dept { DeptID = 6, DeptName ="IT" }
+      };
+    }
+
     public static List<Employee> GetAllEmployees()
     {
       var fileName = @"../../Employees.csv";
@@ -30,19 +50,114 @@ namespace LinqProgramming
         emp.DeptId = int.Parse(values[3]);
         tempList.Add(emp);
       }
+      reader.Close();
       return tempList;
 
     }
+
   }
   class LinqDemos
   {
     static List<Employee> collection = DataComponent.GetAllEmployees();
     static void Main(string[] args)
     {
+      //displayNames();
+      //displayNamesAndAddresses();
+      //displayNamesInOrder();
+      //displayDistinctCities();
+      //displayNamesonPlace();
+      //displayNamesGroupedByAddress();
+      //displayNamesByAlphabet();
+      displayDistinctDeptIds();
+    }
+
+    private static void displayDistinctDeptIds()
+    {
+      var depts = (from emp in collection
+                   orderby emp.DeptId
+                   select emp.DeptId).Distinct();
+      foreach(var dt in depts)
+        Console.WriteLine(dt);
+    }
+
+    private static void displayNamesByAlphabet()
+    {
+      var groups = from emp in collection
+                   group emp.EmpName by emp.EmpName[0] into g
+                   orderby g.Key
+                   select g;
+      foreach(var gr in groups)
+      {
+        Console.WriteLine("Names under " + gr.Key);
+        foreach(var name in gr)
+          Console.WriteLine("\t" + name);
+      }
+    }
+
+    private static void displayNamesGroupedByAddress()
+    {
+      var groups = from emp in collection
+                   orderby emp.EmpName 
+                   group emp.EmpName by emp.EmpAddress into g
+                   orderby g.Key descending
+                   select g;
+      //It returns a collection of groups, each group has collection of employees
+
+      foreach(var gr in groups)
+      {
+        Console.WriteLine("People from " + gr.Key);
+        foreach(var emp in gr)
+        {
+          Console.WriteLine("\t" + emp);
+        }
+        Console.WriteLine();
+      }
+    }
+
+    private static void displayDistinctCities()
+    {
+      var cities = (from emp in collection
+                    select emp.EmpAddress).Distinct();
+      foreach(var city in cities)
+        Console.WriteLine(city);
+    }
+
+    private static void displayNamesonPlace()
+    {
+      Console.WriteLine("Enter the name of the city to search");
+      string city = Console.ReadLine();
+      var records = from emp in collection
+                    where emp.EmpAddress == city
+                    orderby emp.EmpName
+                    select emp.EmpName;
+      foreach(var emp in records)
+        Console.WriteLine(emp);
+    }
+
+    private static void displayNamesInOrder()
+    {
+      var names = from emp in collection
+                  orderby emp.EmpName
+                  select emp.EmpName;
+      foreach(var name in names)
+        Console.WriteLine(name);
+    }
+
+    private static void displayNamesAndAddresses()
+    {
+      //LINQ select always selects a single object....
+      var namesAndAddresses = from emp in collection
+                              select new { emp.EmpName, emp.EmpAddress };
+      foreach(var nA in namesAndAddresses)
+        Console.WriteLine($"{nA.EmpName} from {nA.EmpAddress}");
+    }
+
+    private static void displayNames()
+    {
       //Display all the names...
       var names = from emp in collection
                   select emp.EmpName;
-      foreach(var name in names)
+      foreach (var name in names)
         Console.WriteLine(name);
     }
   }
