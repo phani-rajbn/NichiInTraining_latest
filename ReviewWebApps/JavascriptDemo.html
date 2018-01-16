@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS Samples</title>
+	<script src="./Scripts/Javascript.js"></script>
+	<script type="text/javascript">
+		function init(){
+			var data = getData();
+			//document.getElementById('display').innerText = JSON.stringify(data);
+			document.getElementById('display').innerHTML = "The Name is " + data.empName +"<br/>The Address is " + data.empAddress + "<br/>The ID is " + data.empID;
+			//When we use innerHTML, U could mix HTML tags with the text to display the content. 
+			//innerText will display the text which if includes the HTML tags, it will display as Tags only...
+		}
+		window.addEventListener('load', function(){
+			handleException();
+			document.getElementById('title').innerText = getMessage();
+		})
+		window.addEventListener('click', init);
+	</script>
+</head>
+<body>
+	<h1 id="title"></h1>
+	<div id="display"></div>
+</body>
+</html>

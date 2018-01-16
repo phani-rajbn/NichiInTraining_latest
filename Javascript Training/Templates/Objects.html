@@ -1,0 +1,74 @@
+<script type="text/javascript">
+
+/*	function addFunc(V1, V2){
+		console.log( V1 + V2);
+	}
+
+	console.log(addFunc(123, 234));*/
+	//var temp = alert(123)
+	//alert(temp)
+	var myobj = function(){
+		this.value1 = 123;
+		this.value2 ="SomeName";
+		this.value3 ="SomeAddress"
+
+		this.display = function(){
+			console.log("The name is " + this.value2)
+			console.log("The address is " + this.value3)
+		}
+	}
+	//myobj is a function which returns an object with fields called value1, value2, value3 and a function called display...
+	var obj1 = new myobj();
+	console.log(obj1)
+	obj1.value1 = 432;
+	obj1.value2 ="Phaniraj";
+	obj1.value3 ="Bangalore";
+	//obj1.display();//undefined..	
+	console.log(JSON.stringify(obj1))
+	var obj2 = new myobj();
+	obj2.empID = 433;
+	obj2.empName ="Suresh";
+	obj2.empAddress ="Mysore";
+	//obj2.display();
+	console.log(obj2)
+	var obj3 = new myobj();
+	obj3.display();
+
+	//Using Object literal
+	var obj = { 
+				empID: 123, 
+				empName:"Phaniraj", 
+				empAddress:"Bangalore"
+			};
+	document.write("The name entered is " + obj.empName +"<br/>")
+
+	//Using the object keyword...
+	var emp = new Object();
+	emp.empId = 123;
+	emp.empName ="Phaniraj";
+	emp.empAddress ="Bangalore";
+
+	document.writeln("The name is " + emp.empName + " from " + emp.empAddress +"<br/>")
+	//The third way is using the constructor(function)
+	var book = function(id, title, cost){
+		this.bookId = id;
+		this.title = title;
+		this.price = cost;
+		function display(){
+			console.log("The title is " + this.title)
+			console.log("The Cost is " + this.price)
+			
+		}//This function is not associated with this class...
+		this.showInfo = display;//showInfo is an alias to display...
+		//without using this operator, the function or the field is not associated with the class, so U must use the this operator and bind the fields and functions...
+	}//prototype for the class...
+
+	var myBook = new book(111, "Inside JS", 560);
+	//object for the class...
+	document.write("The cost of the Book '" + myBook.title  +"' is " + myBook.price +"<br/>");
+	myBook.showInfo();
+
+	//create a class called Calc with functions to add, sub, mul, div, sqrt and sqr of a number..
+	//Create the UI using HTML and call the functions in the Page...
+</script>
+JS allows three ways to create objects. Using {}, using new object() and finally with a function...

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Array with local Storage</title>
+	<style type="text/css">
+		.table{
+			display: none;
+		}
+	</style>
+	<script src="./Scripts/localStorage.js"></script>
+	<script src="./Scripts/SimplifiedJs.js"></script>
+	<script type="text/javascript">
+		var demo = new collection();
+		window.addEventListener('load', function(){
+			$('aAdd','click', function(){
+				get('addNew').style.display = 'inline-block';
+				$('btnSave','click',function(){
+					var id = get("txtId").value;
+					var name = get('txtName').value;
+					var addr = get('txtAddr').value
+					var empObj = new emp(id, name, addr);
+					demo.addEmployee(empObj);
+					alert("Employee added successfully")	
+				})
+			})
+			$('aShow','click', function(){
+			get('divShow').style.display = 'inline-block';
+			get('addNew').style.display = 'none';
+			var data = demo.getEmployees();
+			get('tblView').innerHTML ='<tr><th>ID</th><th>Name</th></tr>';
+			for (var i = 0; i < data.length; i++) {
+			 	var row = '<tr><td>' + data[i].empID +'</td><td>';
+			 	row += data[i].empName +'</td></tr>';
+			 	get('tblView').innerHTML += row;
+			 } 
+		})
+		})
+	</script>
+</head>
+<body>
+	<nav>
+		<menu>
+			<menuitem>
+				<a id="aShow" href="#">DisplayAll</a>
+				<a id="aAdd" href="#">Add New</a>
+			</menuitem>
+		</menu>
+	</nav>
+	<h1>Employee Management System</h1>
+	<div style="display:none" id="divShow">
+		<table id="tblView" border="1"></table>
+	</div>
+	<div id="addNew" style="display:none;">
+		<p>
+			<input type="text" id="txtId" placeholder="Enter the ID">
+		</p>
+		<p>
+			<input type="text" id="txtName" placeholder="Enter the Name">
+		</p>
+		<p>
+			<input type="text" id="txtAddr" placeholder="Enter the Address">
+		</p>
+		<button id="btnSave">Save</button>
+	</div>
+</body>
+</html>

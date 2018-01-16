@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="../Scripts/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("button").click(function(){
+				var data = parseInt($("#v1").val());
+				var data2 = parseInt($("#v2").val());
+				alert(data + data2);
+			})	
+		})
+	</script>
+</head>
+<body>
+	<input type="text" id="v1">
+	<input type="text" id="v2">
+	<button>Submit</button>
+</body>
+</html>

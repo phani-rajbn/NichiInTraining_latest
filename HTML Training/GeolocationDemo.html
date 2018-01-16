@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Geolocation Feature</title>
+	<script type="text/javascript" src="./Scripts/SimplifiedJs.js"></script>
+	<script type="text/javascript">
+		window.addEventListener('load', function(){
+			/*$click("btnLocate", function(){
+				alert("I was clicked");
+			})*/
+			$('btnLocate','click', function(){
+				if(navigator.geolocation){
+					alert("Now getting the location....");
+					navigator.geolocation.getCurrentPosition(display, errorInfo);
+				}else{
+					alert("HTML 5 features is not supported in UR Browser.....");
+				}
+			})
+			//This func is called after the location is found by the GPS of UR Device...
+			function display(pos){
+				var loc = pos.coords.latitude +"," + pos.coords.longitude;
+				var img = "https://maps.googleapis.com/maps/api/staticmap?center=" + loc + "&zoom=19&size=300x300&sensor=false&key=AIzaSyDr6WVZOP8DmEzIdkNsuljoIVwDoDhgPwY";
+				get("divMap").innerHTML = '<img src="' + img +'"/>'
+			}
+			function errorInfo(err){
+				alert(err.message);
+			}
+		})
+	</script>
+</head>
+<body>
+	<h1>Using Geolocation Feature</h1>
+	<p>
+		In HTML5, we could use the GPS position of the device that we are viewing the HTML page and get the lat-long cooridinates of the GPS Tracking device. Using that we could Google Maps APIs to fetch the Maps relevent to the location of the user. For this U need internet connection as well as relevant rights to be granted by the owner of the device. GPS positions are best obtained by WIFI, DataConnection or EDGE.  
+	</p>
+	<button id="btnLocate">Locate Me!!!!</button>
+	<div id="divMap"></div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<ArrayOfExpense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Expense>
+    <ExpenseID>1</ExpenseID>
+    <Details>Food at Pizza Hut</Details>
+    <Amount>900</Amount>
+    <Date>2018-01-01T00:00:00</Date>
+  </Expense>
+  <Expense>
+    <ExpenseID>2</ExpenseID>
+    <Details>Food at Pizza Hut</Details>
+    <Amount>900</Amount>
+    <Date>2018-01-02T00:00:00</Date>
+  </Expense>
+</ArrayOfExpense>

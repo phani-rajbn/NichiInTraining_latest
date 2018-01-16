@@ -1,0 +1,27 @@
+.NET Framework: Is a Technology for building various kinds of Applications using a variety of languages and applications are targetted on various platforms. The Types of Applications could be Terminal Based, Windows Based, Web Based, Service Based, Mobile Based and many more. It is designed to be updated with latest technologies and newer challenges of the Software industry.
+These languages have some set of rules and guidelines that are supposed to be followed by them to make the Applications designed by them to run on the .NET Framework.
+C# is one such language which has the features of C++ and Object Oriented Programming that is very popular for developing .NET Apps. 
+C# programming language has features of C++ as well as that of Java and VB.
+.NET Framework contains Libraries to create Applications. Libraries are DLLs that contain APIs for developing all sorts of Applications required in the industry.
+NOTE: DLLs are precompiled units(Code that is already compiled and can be used in the Application and there is no need for recompiling it again and Application will load these components at runtime) that are used for distribution so that it could be used in multiple Applications and projects.
+.NET Framework has its own Execution Environment called CLR(Common Language runtime) that allows .NET Apps to be executed in an optimized manner. All .NET Apps will execute only in this CLR. Officially CLR is shipped along with .NET and it is available only for Windows Platform. But the latest versions of .NET called as .NET CORE allows to run .net Applications on all platforms including iOS and Andriod. 
+Every Windows OS since Windows XP SP3 have .NET Framework installed in it. U could also download the latest versions from the MS website. 
+Visual Studio is a place where U develop the Applications on .NET at an industrial Scale. It is a proprietory Product.
+There is a community Edition of the VS available which can be used for learning, testing UR Applications. There are other editions like Professional and Enterprise which are cost based and will have more additional features like Advanced Debugging Perfomance Monitors, Code Reviewers, support for TFS(Team Foundation Server) and many more.    
+We use VS to develop applications based on .NET Technology using a programming language called C#. 
+VS provides an organized way of developing and maintaining UR Code and Applications. UR Code is saved as Files and grouped into units called Projects. UR Code will always be the part of the project. Every Project would generate an output file of either EXE or DLL. 
+There can be group of Projects called Solution. Every Application is created as a part of Solution, where every soln will have one or more projects and where each project has one or more Files that are to be compiled and built, where each file contains one or more classes, interfaces, structures, delegates, enums and namespaces.  
+When U create a project, first decide the type of project U want to develop. In this case, its Console Application. Every App project will have a C# file called Program.cs which contain the entry point of UR App. It also contains an XML based file called App.config which contains the settings for UR Application which will be loaded before UR App starts.  Properties are information about UR Application. References are links to the external DLLs that UR Application will consume. 
+
+Creating First Program:
+Main is the entry point for any C# program. Main is a part of a class. Main is case sensitive. Main function should be static function. C# does not support global functions and global variables. So Main is invoked thro the classname by the Runtime.
+Main can take only string[] as argument or nothing...
+Main can return either a void or int, no other data type is supported. 
+Console is a .NET Class that is defined in a namespace called System which contain functions to interact with Console WIndow. It has static functions to operate on the Window...
+ReadLine is a method to take the inputs from the user in the Console and return a string representation of it. 
+int.Parse is a method of the int structure which converts string to integer.
+ 
+ -----------------Dll Programming in C#----------------------
+ Dlls are created as Class libraries in Visual Studio. The project type is ClassLibrary. Every Dll will give an output file with an extension .dll.  U should reference the Dll and use the namespace before consuming the classes of the DLL. Classes of the DLL should be public so that U can use them inside other Applications(Projects)
+
+

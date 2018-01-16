@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<TouristInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TourID>2</TourID>
+  <Place>Mysore</Place>
+  <Distance>130</Distance>
+  <PlacesOfInterest>
+    <string>Zoo</string>
+    <string>Chamundi Hills</string>
+    <string>Srirangapatna</string>
+    <string>KRS</string>
+  </PlacesOfInterest>
+</TouristInfo>

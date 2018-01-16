@@ -1,0 +1,2 @@
+1,C#,Which of these is the base class for the component that has to be accessed remotely?,System.Object,MarshalByRef,MarshalByRefObject,MarshalByValueObject,C
+2,C#,Which class is used to serialize the data using XML format?,XmlSerializer,XmlFormatter,XmlParse,XmlWriter,A

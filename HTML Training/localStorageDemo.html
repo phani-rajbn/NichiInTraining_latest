@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Local Storage Demo</title>
+	<link rel="stylesheet" type="text/css" href="./Styles/Main.css">
+	<script src="./Scripts/SimplifiedJs.js"></script>
+	<script type="text/javascript">
+		window.addEventListener('load', function(){
+			$('btnSave', 'click', function(){
+				if(localStorage){
+					var key = get('txtKey').value;
+					var value = get('txtData').value;
+					localStorage.setItem(key, value);
+					//If the key already exists, it simply replaces the value...
+				}
+			})
+			$('btnDisplay','click', function(){
+				var key  = prompt("Enter the key to get the value");
+				var value = localStorage.getItem(key);
+				get('key').innerText = key;
+				get('val').innerText = value;
+			})
+		})
+	</script>
+</head>
+<body>
+	<h1>Store Data to local Storage</h1>
+	<p>
+		Local Storage allows data in the form of text to be stored in the browser for a period of 1 year. The data is stored in the form of key-value pairs. The key is the way to identify the data and the value stores the data... There are functions called getItem and setItem to get and set the values in the local storage...
+	</p>
+	<div>
+	<input type="text" id="txtKey" placeholder="Enter name for data"><br>
+	<input type="text" id="txtData" placeholder="Enter value for data here"><br>
+	<button id="btnSave">Save Data</button>
+	</div>
+	<div>
+		<button id="btnDisplay">Display Data</button>
+		<h2>Display the contents of the localStorage</h2>
+		The Key:<span id="key"></span><br>
+		The Value:<span id="val"></span><br>
+	</div>
+</body>
+</html>

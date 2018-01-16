@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>First Demo</title>
+	<script src="../Scripts/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			/*$("p").mousemove(function(){
+				$(this).css('font-size','xx-Large');
+				$(this).css('color','Blue');
+			})
+			$("p").mouseleave(function(){
+				$(this).css('font-size','medium');
+				$(this).css('color','black');
+			})*/
+			$("p").first().click(function(){
+				alert("First paragraph of the document is clicked")
+			})
+			/*$("p:eq(1)").click(function(){
+				alert("2nd paragraph is clicked")
+			})
+			$("p").last().click(function(){
+				alert("3rd paragraph was clicked")
+			})*/
+			$("p:gt(0)").click(function(){
+				//gt means greater than which takes index as arg
+				alert("Other than first is clicked");
+			});
+
+		})
+	</script>
+</head>
+<body>
+	<div>
+		<h1>What is jQuery?</h1>
+		<a href="#">About jQuery</a>
+		<p>
+			jQuery is a JavaScript Framework for developing JS applications in a simplified manner. It makes writing JS code easy. It provides a high level of abstraction for many operations which needs lot of code to be written in pure JS..It simplies the code for manipulating the DOM elemnts within the page using jQuery...
+		</p>
+		<a href="#">What is $</a>
+		<p>
+			The shortCut for loading the jQuery is using $. It represents the library. It takes the arg of the selector on which U wish to perform operation.<br/>
+			Selectors will work like document.getElement... by Id, by TagName and ClassName...
+		</p>
+		<a href="#">Additional Notes</a>
+		<p>
+			NOTE:jQuery is not anything as a different language, it is simply JS. All the features and rules of the JS are applicable in jQuery.
+		</p>
+	</div>
+</body>
+</html>

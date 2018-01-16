@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Using and working with variables</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//variables are the places to store the data for brief period which could be modified either by the user input or thro programming logic. JS support  only one type of data called var. But internally var will store the data based on the value U have assigned to it. 
+
+		var username = 'Phaniraj';//Store string data.... 
+		console.log("The value of the username is " + username);
+		username = 41;
+		console.log("The age of the username is " + username);
+		username += 1;
+		console.log("The age of the username after 1 year is " + username);
+		//NOTE: Create the variable only if it required. 
+		//use a builtin function called prompt to take the input from the user. promot returns string which should be converted to a number...
+		//var v1 = parseFloat(prompt("Enter any floating number"));
+		//var v2 = parseFloat(prompt("Enter any floating number"));
+		//parseFloat and parseInt are 2 functions provided by the JS to convert string based data to number based variables. If the intented conversion fails, then JS returns an NaN object(Not a Number). 
+		/*console.log("The Add operation gets U " + (v1 +v2))
+		console.log("The Sub operation gets U " + (v1 - v2))
+		console.log("The Mul operation gets U " + (v1 * v2))
+		console.log("The Div operation gets U " + (v1 / v2))
+		console.log("The Remainder of v1/v2 is " + (v1 % v2))*/
+		//variables created can be used to perform various operations using the arithematic operators like +, -, * and /.
+
+		var x = 123;//x is an number....
+		console.log(x = "123");//x becomes string...
+		console.log(typeof(x))
+		//NOTE: There are 2 operators to check for equality in jS. == is used to check only the value comparsion and === is used to check for both value and datatype comparison....
+
+		//About single quote and double quote: They are same in JS. If a string starts with single quote, it should end with single quote, same with double quotes..
+		//JS has global scope and local scope in defining the variables. Dont use the global scope frequently. global scopes are created once and only once and will be used across the application. The memory is released only at the end of the application. 
+		//local scoped variables are usefull as we could reuse the same variable again and again...Scopes are associated with blocks(usually with functions). THe scope of the variable if not mentioned in the block, would be created globally and would corrupt the scope of the variable... 
+		{
+			var x = 123;
+			console.log(typeof(x))
+		}
+		{
+			var x = "Some Text";
+			console.log(typeof(x));
+		}	
+		//if the variable is created to store primitive data types, then assign it to '' else null for storing object data...
+
+		var unassigned = null;//A variable is created but not assigned to any type, so its data type is not defined or not specified, so its data type is undefined. 
+		unassigned = {};//Syntax of creating global object
+		unassigned.value1 = 123;//adding fields to that object....
+		unassigned.value2 ="SomeName";
+		unassigned.value3 = "Some Address";
+		unassigned.value2 = "NewName"//Re-assigned the value
+		unassigned.getValues = function(){
+			console.log("THe Name: " + this.value2);
+			console.log("THe Address: " + this.value3);
+		} 
+		//Internally objects are collection of fields and functions in the form of key-value pairs. The name of the field is key and the value of the field is the value...
+		console.log(typeof(unassigned))//What is the result?
+		console.log(JSON.stringify(unassigned))
+		unassigned.getValues();//Call the function...
+
+		var newobj = unassigned;//created a reference of the unassigned, a duplicate object...
+		newobj.value2 ="OldName"//Changes made to the duplicate will be reflected on the original  
+		newobj.getValues();
+		unassigned.getValues();
+
+	</script>
+</body>
+</html>

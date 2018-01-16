@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration Form</title><link rel="stylesheet" type="text/css" href="./Styles/Main.css">
+</head>
+<body>
+	<h1>User registration Form</h1>
+	<p>
+		Users can interact by providing details for any input features that has to be stored in an external database or any file system. This is done using the HTML forms. Forms usually work with server side or client side code with interaction happening thro services(REST or Web services). Many Scripting languages dont provide IO operations. U cannot do any file operations or database operations. These features are provided by the server side scripting technology and Client side simply consumes those services and place them in the HTML pages....
+	</p>
+	<p><cite>NOTE: To work with only the client side, U could use local storage of the HTML5. In HTML5, we could store text based data in the form key-value pairs in the browser. This is called as local Storage. The data is not available for all the users, it is only for the current user who consumes that application inside the browser. </cite></p>
+	<p>There is a new control called datalist which allows to store some data in the form of text. The datalist will have an id which will be refered by any input element so that when inputs are given to that element, it could filter the data from the datalist and select an item from it. It is similar to dropdownlist but with editable feature. In select, U cannot select any new item other than found in the options of the select. But in an input control associated with datalist, if the entry is not found in the datalist, U could make a new entry and allow the user to take that as the input value. </p>
+	<div class="inputform">
+		<h1>Register here</h1>
+		<form>
+			<p><input type="text" id="txtName" required placeholder="Enter the name here" /></p>
+			<p><input type="email" id="txtemail" required placeholder="Enter the email here" /></p>
+
+			<p>
+				<select id="cmbQualification">
+					<option>--Select the Qualification--</option>
+					<option>Graduation</option>
+					<option>Under Graduation</option>
+					<option>Post Graduation</option>
+					<option>Research</option>
+				</select>
+			</p>
+			<p><input type="date" id="txtDob" required placeholder="select the date of birth"></p>
+			<p>
+				Select the Gender: 
+				<input class="check" type="radio" name="gender" id="rdMale">Male 
+				<input class="check" type="radio" id="rdFemale" name="gender"/> Female 
+			</p>
+			<p>
+				<datalist id="dtCities">
+					<option>Bangalore</option>
+					<option>Hyderabad</option>
+					<option>Amaravathi</option>
+					<option>Chennai</option>
+					<option>Trivandrum</option>
+					<option>Pondy</option>
+					<option>Panaji</option>
+				</datalist>
+				Select the City:<input type="text" id="txtCity" list="dtCities">
+			</p>
+			<p>
+				Rate us:<input type="range" min="1" max="10" id="txtRange">
+			</p>
+			<button type="button" id="btnSubmit">Register</button>
+			<p id="pDisplay"></p>
+		</form>
+	</div>
+	<script type="text/javascript" src="Scripts/ScriptDemo.js"></script>
+	<script type="text/javascript">
+		function displayResults(){
+			var result = '';
+			result += 'The name entered is ' + document.getElementById('txtName').value;
+			result += '<br/>The Email entered is ' + document.getElementById('txtemail').value;
+			result += '<br/>The Qualification entered is ' + document.getElementById('cmbQualification').value;
+			var dob = new Date(document.getElementById('txtDob').value);
+			var date = new Date();
+			var age = date.getFullYear() - dob.getFullYear();
+			result += 'The age is  ' + age;
+			document.getElementById('pDisplay').innerHTML = result;
+		}
+		function init() {
+			//First get the reference of the control that U want to use....
+			//Use the reference to add any event handlers....
+			//Event handler is a function that will be called when an event is triggered by the user
+			//Callback function where we map the event with a function that will be invoked if the event occurs.There is a clean seperation of the JS code and the HTML code. This is called as Unobtrusive Javascript..	
+			var btn = document.getElementById('btnSubmit');
+			btn.addEventListener('click', displayResults);
+		}
+		window.addEventListener('load', init);
+	</script>
+</body>
+</html>

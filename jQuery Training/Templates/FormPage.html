@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User inputs Page</title>
+	<script src="../Scripts/jquery.min.js"></script>
+	<script type="text/javascript">
+		function init() {
+			$("button").click(function(){
+				var id = $("#txtId").val();
+				var name = $("#txtName").val();
+				var Address = $("#txtAddress").val();
+				var date = $("#txtDate").val();
+				var selectedDate = new Date(date);
+				var today = new Date();
+				var age = today.getFullYear() - selectedDate.getFullYear();
+				var text = "The name is " + name + " The Address is " + Address +" The Age is " + age;
+				$("#pDisplay").text(text);
+			})
+		}
+		$(document).ready(init);
+	</script>
+</head>
+<body>
+	<h1>User registration Form</h1>
+	<p>
+		<input type="number"  id="txtId" placeholder="Enter the ID">
+	</p>
+	<p>
+		<input type="text"  id="txtName" placeholder="Enter the Name">
+	</p>
+	<p>
+		<input type="text"  id="txtAddress" placeholder="Enter the Address">
+	</p>
+	<p>
+		<input type="date"  id="txtDate" placeholder="Enter the date">
+	</p>
+	<p><button>Register</button>
+	<p id="pDisplay"></p>	
+</body>
+</html>

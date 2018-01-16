@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+p{ line-height: 1em; }
+
+h1, h2, h3, h4
+{
+    color: green;
+	font-weight: normal;
+	line-height: 1.1em;
+	margin: 0 0 .5em 0;
+}
+
+h1{ font-size: 3.7em; }
+
+h2{ font-size: 1.5em; }
+
+a{
+	color: black;
+	text-decoration: none;
+}
+a:hover,a:active{ }
+
+body{
+    font-family: arial;
+    font-size: 80%;
+    line-height: 1.2em; 
+    width: 100%; 
+    margin: 0; 
+    background: #eee;
+}
+
+#page{ margin: 20px; }
+
+#logo{
+	width: 35%;
+	margin-top: 5px;
+	font-family: georgia;
+	display: inline-block;
+}
+
+#nav{
+	width: 60%;
+	display: inline-block;
+	text-align: right;
+	float: right;
+}
+	#nav ul{}
+		#nav ul li{
+			display: inline-block;
+			height: 62px;
+			transition-duration: 0.9s;
+		}
+			#nav ul li a{
+				padding: 10px;
+				background: green;
+				color: white;
+				transition-duration: 0.5s;
+			}
+			#nav ul li a:hover{
+				background-color:whitesmoke;
+				color: green;
+				box-shadow: 0px 1px 1px darkgreen;
+			}
+			#nav ul li a:active{ background-color:gray; }
+
+#content{
+	
+	background: white;
+	padding: 20px;
+
+}
+#footer{
+	border-bottom: 1px #ccc solid;
+	margin-bottom: 10px;
+}
+	#footer p{
+		text-align: right;
+		text-transform: uppercase;
+		font-size: 80%;
+		color: green;
+	}
+
+/* multiple styles seperated by a , */
+#content,
+ul li a{ box-shadow: 1px 1px 1px #999; }
+.dropbtn {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    font-size: 13px;
+    border: none;
+	cursor: pointer;
+	transition-duration: 0.5s;
+}
+
+.dropdown {
+    position: relative;
+	display: inline-block;
+	transition-duration: 0.9s;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: whitesmoke;
+    min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	transition-duration: 0.9s;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: green;
+    padding: 12px 16px;
+    text-decoration: none;
+	display: block;
+	transition-duration: 0.5s;
+}
+
+.dropdown-content a:hover {background-color: green; color: whitesmoke}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+	transition-duration: 0.5s;
+}
+
+.dropdown:hover .dropbtn {
+	background-color: whitesmoke;
+	color: green;
+}
+
+.button {
+   
+   
+   
+    padding: 10px 25px;
+    
+   
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+   
+    transition-duration: 0.6s;
+    cursor: pointer;
+}
+
+
+
+.button5 {
+    background-color: white;
+    color: green;
+    border: 2px solid #555555;
+}
+
+.button5:hover {
+    background-color: green;
+    color: white;
+}
+input[type=text] {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+input[type=text]:focus {
+    border: 3px solid #555;
+}
+select,input[type=date] {
+	width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+	outline: none;
+	
+}
+select:focus{
+	border: 3px solid #555;
+}
+</style>
+    <title>My Calculator</title>
+    
+</head>
+
+<body>
+    <div id="page">
+		<div id="logo">
+			<h1>Question-Bank</h1>
+		</div>
+		<div id="nav" style="vertical-align: top">
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Take test</a></li>
+                <li><a href="#">Study material</a></li>
+				<li><a href="User.html">Question bank</a></li>
+				<div class="dropdown">
+  					<button class="dropbtn">Others</button>
+ 					 <div class="dropdown-content">
+  					  <a href="#">option</a>
+   						 <a href="#">Option</a>
+							<a href="#">option</a>
+							  <a href="#">option</a>
+ 							 </div>
+				</div>
+				
+            	<li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+			</ul>	
+		</div>
+		<div id="content" >
+            <div class="dropdown" style="display: inline-block; width: 50%;">
+  					<select id="cat">
+                    <option value="choose">--choose catogory--</option>
+                    <option value="Java-script">Java-script</option>
+                    <option value="C#">C#</option>
+                    <option value=">.NET">.NET</option>
+                    <option value="JAVA">JAVA</option>
+                    <!-- <option value="options">options</option> -->     
+                      </select>
+ 					
+                </div>
+                            <br>
+			 <textarea rows="4" cols="97" id="txtAreaQues">
+    </textarea><br/>
+    <p>
+        <input type="checkbox" name="option" id="chkOption1"> <input name="option" type="text" id="txtOption1"><br/></p>
+    <p>
+        <input type="checkbox" name="option" id="chkOption2"> <input name="option" type="text" id="txtOption2"><br/></p>
+    <p>
+        <input type="checkbox" name="option" id="chkOption3"> <input name="option" type="text" id="txtOption3"><br/></p>
+    <p>
+        <input type="checkbox" name="option" id="chkOption4"> <input name="option" type="text" id="txtOption4"><br/></p>
+    <button class="button button5" id="btnSubmit">Submit</button>
+			
+		</div>
+		<div id="footer">
+			<p>
+				Webpage made by <a href="" >Thanush Acharya</a>
+			</p>
+		</div>
+	</div>
+    
+ <script src="../Script/jQuery.min.js"></script>
+    <script src="../Script/script.js"></script>
+    <script type="text/javascript">
+        var que = new quesBank();
+        $(document).ready(function () {
+            $("#btnSubmit").click(function () {
+                var sel = $("#cat").val();
+                var ques = $("#txtAreaQues").val();
+                var option1 = $("#txtOption1").val();
+                var option2 = $("#txtOption2").val();
+                var option3 = $("#txtOption3").val();
+                var option4 = $("#txtOption4").val();
+
+                if ($('#chkOption1').is(":checked")) {
+                    var chk1 = true;
+                }
+
+                if ($('#chkOption2').is(":checked")) {
+                    var chk2 = true;
+                }
+
+                if ($('#chkOption3').is(":checked")) {
+                    var chk3 = true;
+                }
+
+                if ($('#chkOption4').is(":checked")) {
+                    var chk4 = true;
+                }
+
+                var q = new question(sel, ques, option1, option2, option3, option4, chk1, chk2, chk3, chk4);
+                que.addQues(q);
+                alert("Question added")
+            })
+        })
+    </script>
+</body>
+
+</html>

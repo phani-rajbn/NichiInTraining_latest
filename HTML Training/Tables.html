@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tables in HTML Pages</title>
+	<script type="text/javascript" src="Scripts/empCollection.js"></script>
+	<script type="text/javascript">
+		var selectedRow = 0;//create a row variable...
+		var selectedID = 0;
+		var selectedName = '';
+		var selectedAddr = ''
+		function populateRecords() {
+			var table = document.getElementById('tblData');
+			table.innerHTML = '<tr><th>Employee ID</th><th>Employee Name</th><th>Employee Address</th>					<th>Options</th></tr>';
+
+			for (var i = 0; i < collection.length; i++) {
+				if(collection[i].isRemoved == false){
+					var row = '<tr><td>' + collection[i].empID +'</td>';
+					row += '<td>' + collection[i].empName +'</td>';
+					row += '<td>' + collection[i].empAddress +'</td>';
+					row += '<td><a href="#" class="edit">Edit</a>&nbsp;&nbsp;&nbsp;<a href="#" class="delete">X</a></td></tr>';
+					table.innerHTML += row;
+				}
+			}
+
+			var deletes = document.getElementsByClassName('delete');
+			for (var i = 0; i < deletes.length; i++) {
+				deletes[i].addEventListener('click', function(){
+					
+					var id = this.parentNode.parentNode.cells[0].innerText;
+					deleteEmp(id);
+					populateRecords();
+				})
+			}
+
+			var edits = document.getElementsByClassName('edit');//returns an array....
+			for (var i = 0; i < edits.length; i++) {
+				edits[i].addEventListener('click', function(){
+					//this-->a tag..
+					//this.parentNode-->td
+					//this.parentNode.parentNode->tr
+					//this.parentNode.parentNode.cells[0].innerText = Id of the selected row...
+					selectedID = this.parentNode.parentNode.cells[0].innerText;
+					document.getElementById('txtId').value = this.parentNode.parentNode.cells[0].innerText;
+					selectedName = this.parentNode.parentNode.cells[1].innerText;
+					document.getElementById('txtName').value = this.parentNode.parentNode.cells[1].innerText;
+					selectdAddr = this.parentNode.parentNode.cells[2].innerText;
+					document.getElementById('txtAddress').value = this.parentNode.parentNode.cells[2].innerText;
+				})
+			}
+		}
+		function init(argument) {
+			populateRecords();
+			document.getElementById('btnAdd').addEventListener('click', function(){
+				selectedID = document.getElementById('txtNewId').value;
+				selectedName = document.getElementById('txtNewName').value;
+				selectedAddr = document.getElementById('txtNewAddress').value;
+				var empObj = new emp(selectedID, selectedName, selectedAddr);
+				addEmployee(empObj);
+				populateRecords();
+			})
+
+			document.getElementById('btnSave').addEventListener('click', function(){
+				window.location.href= "./Formatting.html";
+				selectedID = document.getElementById('txtId').value;
+				selectedName = document.getElementById('txtName').value;
+				selectedAddr = document.getElementById('txtAddress').value;
+				var empObj = new emp(selectedID, selectedName, selectedAddr);
+				updateEmp(empObj);
+				populateRecords();
+			})
+			
+		}
+		window.addEventListener('load', init);
+	</script>
+	<link rel="stylesheet" type="text/css" href="./Styles/Main.css">
+</head>
+<body>
+	<div>
+		<h1>What are tables?</h1>
+		<p>Tables provide tabular representation of data. It  is also used to provide margins to multiple sections of the page. If U want to divide the page vertically into multiple equal parts, its good to use a table and present the data.</p>
+		<p>If U have 2 or more elements to have a same feature, look and feel, then U could create a CSS Class(type) and associate it to the elements, by doing this, all the elements of that class will have the common features and styles...
+		<table id="tblData" border="1">
+				
+		</table>
+	</div>
+	<div>
+		<h1>Edit the content</h1>
+		<form>
+		<p><input type="number" id="txtId" placeholder="Employee ID to edit"></p>
+		<p><input type="text" id="txtName" placeholder="Employee Name to edit"></p>
+		<p><input type="text" id="txtAddress" placeholder="Employee Address to edit"></p>
+		<p>
+			<button id='btnSave' type="button">Update</button>
+			<button type="reset" id="btnClear">Clear</button>
+		</p>
+		</form>
+	</div>
+	<div>
+		<h1>Add the content</h1>
+		<form>
+		<p><input type="number" id="txtNewId" placeholder="Employee ID to edit"></p>
+		<p><input type="text" id="txtNewName" placeholder="Employee Name to edit"></p>
+		<p><input type="text" id="txtNewAddress" placeholder="Employee Address to edit"></p>
+		<p>
+			<button id='btnAdd' type="button">Update</button>
+			<button type="reset" id="btnClear">Clear</button>
+		</p>
+		</form>
+	</div>
+	<ul>
+		<li>table creation</li>
+		<li>Creating objects</li>
+		<li>Creating Arrays</li>
+		<li>Dynamically generating tables</li>
+		<li>How to use CSS Classes in HTML Elements</li>
+	</ul>
+</body>
+</html>

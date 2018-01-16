@@ -1,0 +1,27 @@
+<script type="text/javascript">
+	//console.log is a built in function to display text on the console of the Browser. It is used to provide a logging info about UR execution of the code. It is better than using alert statements where it is very annoying to the user and user might disable the alert messages. 
+	var content = '<b>Content to be displayed on the Window</b></br>';
+	document.write(content)
+	//The document can access the child elements of the document using Id, ClassName and Tag Name. Using className and Tagname will return an array of Elements. Its an HTMLCollection. Html Collection will not have methods like push, pop, splice which work with arrays....With html collection U could iterate the collection to access individual elements. 
+	//The methods are: getElementById, getElementsByClassName, getElementsByTagname.
+
+	//Every DOM ELement will have a set of Events which could be used to manipulate the content of the HTML page dynamically. 
+	//Browser has an object called document that represents the HTML page. we could use the document object to get the details of the elements available within the HTML page. Its write method will be used to write a text on the document object. These events include click(button related controls), mouseover, mousemove(All kinds of elements), change(Text related events) events. 
+	console.log("Welcome to JS");//string
+	console.log(123);//number
+	console.log(123.234)//float
+	console.log(true);//boolean.
+	console.log({})//object
+	document.addEventListener('click', function(){
+		alert("Doc is clicked")
+	})
+	//NOTE: Everything is object in JS. There is an universal data type called object which can be used to store any form of data in it...
+	//To store the data we use a var type. var is a keyword in JS to store variable data.
+</script>
+Javascript is a client side scripting language for developing Dynamic web content. It is simple to use and very primitive in nature. The code will be with very less syntax andeasy to adapt coding process. Not much focus is on the data types and syntax checking.<br>
+Javascript(JS) does not run by itself. It will be executed from the browser. 
+NOTE: Nodejs is one framework for developing JS Applications on the server side. Our course is not focused on NodeJs. Javascript does not provide any support for IO operations like File, Database or any other form of Input output operations. 
+HTML pages are embedded with JS code under the script tag. Every JS code should come under the script tag. The JS is read thro an interpretor which executes the block line by line. JS is object based not object oriented. <br>
+JS is Open source and is maintained by a consortium called ECMA(European Computers manufacturers Association), who develop stds for the JS. It is ES. The Current version is ES7. But popular is ES6 or ECMA Script6. This version of JS includes new keywords like class, constructor, lambda Expressions, Advanced Collection Concepts and many more to almost compete with other object oriented programming languages like Java and C#. The S6 has newer snytax and supported by other popular scripts like TypeScript. TypeScript is a MS promoted language for  developing ES6 JS code. TypeScript is used by Angular Team(Google).
+Currently JS is popularly created using any Text editor and viewed thro a Browser. All browsers support native JS and different versions of ES stds... 
+

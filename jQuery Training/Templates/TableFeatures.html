@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student Enrollment App</title>
+	<script src="../Scripts/jquery.min.js"></script>
+	<script src="../Scripts/Array.js"></script>
+	<script type="text/javascript">
+		var list = new Collection();
+		var selectedStudent = null;
+		function register(){
+			//take the input values...
+			var id = $("#txtId").val();
+			var name = $("#txtName").val();
+			var address = $("#txtAddress").val();
+			var date = $("#txtDate").val();
+			//create the object...
+			var s = new student(id, name, address, new Date(date));
+			//call the register funtion of the list object..
+			list.register(s);
+			//close all the divs...
+			$("div").hide(1000);
+		}
+		function displayDate(date){
+			debugger;
+			var dd = parseInt(date.getDate());
+			if(dd < 10){
+				var day = "";
+				day ="0" + dd;
+				dd = day;
+			}
+			var mm = parseInt(date.getMonth() + 1);
+			if(mm < 10){
+				var m = ""
+				m = "0" + mm;
+				mm = m;
+			}
+			var yy = date.getFullYear();
+			return yy +"-"+ mm + "-" + dd;
+		}
+		function populateData(){
+			var data = list.allRecords();
+			console.log(data.length)
+			$("table:first").find("tr:gt(0)").remove();
+			$.each(data, function(index, el) {
+				var row = '<tr><td>' + el.Id +'</td><td>';
+				row += el.name +'</td><td>';
+				row += el.address +'</td><td>';
+				row += displayDate(el.dob) +'</td><td>';
+				row += '<a href="#" class="edit">Edit</a></td></tr>';
+				$("table:first").append(row);
+			});
+
+			$(".edit").click(function(){
+				$("div").hide(1000);
+				var id = $(this).parent().siblings("td:eq(0)").text();
+				var name = $(this).parent().siblings("td:eq(1)").text();
+				var address = $(this).parent().siblings("td:eq(2)").text(); 
+				var date = $(this).parent().siblings("td:eq(3)").text();
+				selectedStudent = new student(id, name, address, new Date(date));
+				$("div").hide("slow", function(){
+					$("#divRegister").show(1000);
+					debugger;//breakpoint thro code
+					$("#txtId").val(selectedStudent.Id);
+					$("#txtName").val(selectedStudent.name);
+					$("#txtAddress").val(selectedStudent.address);
+					$("#txtDate").val(displayDate(selectedStudent.dob));
+					//alert(selectedStudent.dob)
+				});
+			})
+		}
+		function updateFunc(){
+			var id = $("#txtId").val();
+			var name = $("#txtName").val();
+			var address = $("#txtAddress").val();
+			var date = $("#txtDate").val();
+			var s = new student(id, name, address, date);
+			list.update(s);
+			$("div").hide(1000);
+		}
+		function init() {
+			$("div").hide(1000);
+			$("a:first").click(function(){
+				$("div").hide(1000);
+				$("#divTable").show(1000);		
+				populateData();	
+			})
+			$("#btnUpdate").click(updateFunc);
+			$("a:eq(1)").click(function(){
+				$("div").hide(1000);
+				$("#divRegister").show(1000);
+				$("#btnRegister").click(register);
+			})
+		}
+		$(document).ready(init);
+	</script>
+	<style type="text/css">
+		*{
+			background-color: lightgreen;
+			color:indianred;
+			padding: 4px;
+			margin:3px;
+		}
+		a{
+			display:inline-block;
+			width: 100px;
+			margin: 3px;
+			padding: 5px;
+			background-color:darkgreen;
+		}
+	</style>
+</head>
+<body>
+	<h1>Student Enrollment App</h1>
+	<a href="#">Show All</a>
+	<a href="#">Register</a>
+	<a href="#">Find</a>
+	<a href="#">Delete</a>
+	<div id='divTable'>
+		<h1>List of Registered Students</h1>
+		<table border="1">
+			<tr>
+				<th>StudentID</th>
+				<th>Student Name</th>
+				<th>Student Address</th>
+				<th>Date of Birth</th>
+				<th>Options</th>
+			</tr>
+		</table>
+	</div>
+	<div id="divRegister">
+			<h1>User registration Form</h1>
+	<p>
+		<input type="number"  id="txtId" placeholder="Enter the ID">
+	</p>
+	<p>
+		<input type="text"  id="txtName" placeholder="Enter the Name">
+	</p>
+	<p>
+		<input type="text"  id="txtAddress" placeholder="Enter the Address">
+	</p>
+	<p>
+		<input type="date"  id="txtDate" placeholder="Enter the date">
+	</p>
+	<p>
+		<button id="btnRegister">Register</button>
+		<button id="btnUpdate">Update</button></p>
+	</div>
+	<div id="divSearch">
+		<h1>Search for the Student</h1>
+		<p>
+			<input type="text" placeholder="Enter the Student Name to Search" id="txtSearch">
+		</p>
+		<table border="1">
+			<tr>
+				<th>StudentID</th>
+				<th>Student Name</th>
+				<th>Student Address</th>
+				<th>Date of Birth</th>
+				<th>Options</th>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

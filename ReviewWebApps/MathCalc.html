@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Math Calculator</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>	
+	<h1>Math Calc</h1>
+	<p>
+		<input type="number" id="txtV1" placeholder="Enter v1">
+		<select id="operand">
+			<option>+</option>
+			<option>-</option>
+			<option>*</option>
+			<option>/</option>
+		</select>
+		<input type="number" id="txtV2" placeholder="Enter v2">
+		<button id='btnResult'>Get Result</button>
+	</p>
+	<span id="error" style="display:none;color:indianred;"></span>
+	<div id="divDisplay"></div>
+	<div>
+		<table id="tblHistory" class="table  table-hover"></table>
+	</div>
+	<script src="./Scripts/Javascript.js"></script>
+	<script type="text/javascript">
+		var calcObj = new calc();
+		function populateTable(data){
+			var table = document.getElementById('tblHistory');
+			table.innerHTML ="";
+			for (var i = 0; i < data.length; i++) {
+				var item = data[i];
+				var row = '<tr><td>' + item.time + "</td><td>" + item.Value1 + " " + item.operand + " "  + item.Value2;
+				row += "</td><td>" + item.result +"</td></tr>";
+				table.innerHTML += row;
+			}
+		}
+		function performOperation() {
+			document.getElementById('error').innerText ="";
+			var v1 = parseInt(document.getElementById('txtV1').value);
+			var v2 = parseInt(document.getElementById('txtV2').value);
+			var operand = document.getElementById('operand').value;
+			var res = 0;
+			switch(operand){
+			case "+":
+					res = calcObj.addFn(v1, v2);
+					break;
+			case "-":
+					res = calcObj.subFn(v1, v2);
+					break;
+			case "*":
+					res = calcObj.mulFn(v1, v2);
+					break;
+			case "/":
+					try{
+						res = calcObj.divFn(v1, v2);
+					}catch(err){
+						var span = document.getElementById('error')
+						span.innerText = err;
+						span.style.display = "inline"
+						document.getElementById('divDisplay').innerText =""
+						return;
+					}
+					break;
+			}
+			
+			document.getElementById('divDisplay').innerText ="The Result of this operation is " + res;
+			var data = calcObj.getHistory();
+			populateTable(data)
+		}
+
+
+		function init() {
+			document.getElementById('btnResult').addEventListener('click', performOperation);
+		}
+		window.addEventListener('load', init);
+	</script>
+</body>
+</html>

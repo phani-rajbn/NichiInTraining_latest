@@ -1,0 +1,5 @@
+﻿~~~~~~~~~~~~~~~~~~~~~~~~~~~~~QUESTION BANK SOFTWARE~~~~~~~~~~~~~~~~~~~~~~~~~~
+ADD NEW QUESTION------------------>PRESS N
+UPDATE QUESTION------------------->PRESS U
+FIND QUESTIONS-------------------->PRESS F
+EXIT THE APP---------------------->ANY OTHER KEY.............................

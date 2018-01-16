@@ -1,0 +1,5 @@
+C:\Users\Phani Raj\Desktop\Current Training\C# Training\DotnetTraining\CommonLib\bin\Debug\CommonLib.dll
+C:\Users\Phani Raj\Desktop\Current Training\C# Training\DotnetTraining\CommonLib\bin\Debug\CommonLib.pdb
+C:\Users\Phani Raj\Desktop\Current Training\C# Training\DotnetTraining\CommonLib\obj\Debug\CommonLib.csprojResolveAssemblyReference.cache
+C:\Users\Phani Raj\Desktop\Current Training\C# Training\DotnetTraining\CommonLib\obj\Debug\CommonLib.dll
+C:\Users\Phani Raj\Desktop\Current Training\C# Training\DotnetTraining\CommonLib\obj\Debug\CommonLib.pdb

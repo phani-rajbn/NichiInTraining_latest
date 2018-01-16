@@ -1,0 +1,18 @@
+Create a new project called RecapApplication.
+Create a new Class File called Question.
+Create a Class called QuestionInfo: Properties: QNo, Subject, Question, string [] choices, CorrectAnswer.
+In the Program.cs, create an object of the QuestionInfo, take inputs from the user and display the details in this order:
+Question No: {Qno}
+Subject:
+Question:{Question}
+A:
+B:
+C:
+D:
+Right Answer: 
+Create a Class called QuestionBank in a seperate file. 
+Its Data member: List<Question> questions;
+Have functions to Add, Update, GetQuestions(subject)
+
+
+

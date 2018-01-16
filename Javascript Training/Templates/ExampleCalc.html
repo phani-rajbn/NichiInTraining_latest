@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calc Project</title>
+	<style type="text/css">
+		div{
+			font-size: xx-large;
+			font-style: bold;
+		}
+	</style>
+	<script type="text/javascript" src="Scripts/Calc.js"></script>
+	<script type="text/javascript">
+		//Create the class for the Calc...
+		
+		//Create the object for the Calc class..
+		var com = new calc();
+		//Provide the event binders to the button...
+		function init() {
+			var btn = document.getElementById('btnShow')
+			btn.addEventListener('click', function(){
+				var v1 = parseInt(document.getElementById('txtv1').value);
+				var v2 = parseInt(document.getElementById('txtv2').value);
+				var operation = document.getElementById('slOperation').value;
+				var div = document.getElementById('divDisplay');
+				switch(operation){
+					case "Add":
+						div.innerText ="The Added value is " + com.addFunc(v1, v2);
+						break;
+					case "Subtract":
+						div.innerText ="The Subtracted value is " + com.subFunc(v1, v2);
+						break;
+					case "Multiply":
+						div.innerText ="The Product value is " + com.mulFunc(v1, v2);
+						break;	
+				}
+			})
+
+		}
+		window.addEventListener('load', init)
+		//Display the Result in the div...
+	</script>
+</head>
+<body>
+	<p><input type="number" id="txtv1" placeholder="Enter V1"></p>
+	<p><input type="number" id="txtv2" placeholder="Enter V2"></p>
+	<p>
+		Select the operation:
+		<select id="slOperation">
+			<option>Add</option>
+			<option>Subtract</option>
+			<option>Multiply</option>
+			<option>Divide</option>
+		</select>
+	</p>
+	<p>
+		<button type="button" id="btnShow">Get Result</button>
+	</p>
+	<div id="divDisplay">
+</body>
+</html>

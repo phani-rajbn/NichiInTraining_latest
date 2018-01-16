@@ -1,0 +1,36 @@
+*{
+		background-color: lightblue;
+		color:indianred;
+}
+input{
+		width: 200px;
+		color:indianred;
+		margin: 5px;
+	}
+input.check{
+	color: indianred;
+}
+div.inputform{
+		border:2px solid;
+		border-color: gold;
+		border-radius: 5px;
+		width: 300px;
+		padding: 5px;
+		margin:3px;
+	}
+div{
+	width: 40%;
+	display: inline-block;
+	vertical-align: top;
+	padding: 15px;
+	margin: 2px;
+	/*border:2px solid red;*/
+	height: 400px;
+}
+article{
+	width: 40%;
+	display: inline-block;
+	vertical-align: top;
+	margin: 5px;
+	padding: 5px;
+}

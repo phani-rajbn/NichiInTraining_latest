@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Calculator</title>
+</head>
+<body>
+	<div>
+		<h2>My Calc Program</h2>
+		<p>
+			<input type="number" id="txtV1" placeholder="Enter v1">
+		</p>
+		<p>
+			<input type="number" id="txtV2" placeholder="Enter v2">
+		</p>
+		<p>
+			<button id="btnAdd">Add</button>
+			<button id="btnSub">Subtract</button>
+			<button id=btnMul>Multiply</button>
+			<button id="btnDiv">Divide</button>
+		</p>
+		<p id="display" style="border: 2px solid;border-color: gold;"></p>
+	</div>
+	<script type="text/javascript" src="Scripts/ScriptDemo.js"></script>
+	<script type="text/javascript">
+		window.addEventListener('load', init);
+		function init() {
+			document.getElementById('btnAdd').addEventListener('click', function(){
+				//parseInt is a function that converts a string to a integer number...If the number canot be converted, then it will be an NaN....
+				var v1 = parseInt(document.getElementById('txtV1').value);
+				var v2 = parseInt(document.getElementById('txtV2').value);
+				//the value property of the input will return string value...When 2 strings are added, it concatinates. Convert the values to numbers and then add..
+				var res = addFunc(v1, v2);
+				document.getElementById('display').innerText ="The Added value is " + res;
+			})
+
+			document.getElementById('btnSub').addEventListener('click', function(){
+				var v1 = document.getElementById('txtV1').value;
+				var v2 = document.getElementById('txtV2').value;
+				var res = subFunc(v1, v2);
+				document.getElementById('display').innerText ="The Added value is " + res;
+			})
+			//How to create functions.
+			//How to create variables...
+			//How to call functions in HTML Page...
+		}
+	</script>
+</body>
+</html>

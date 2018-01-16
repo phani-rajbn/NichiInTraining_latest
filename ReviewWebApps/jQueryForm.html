@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<a href="#">Add New book</a>	
+	<div>
+		<input type="text" placeholder="Search for title here" id="txtSearch">
+		<table>
+			<tr>
+				<th>Book ID</th><th>Book Title</th><th>Book Cost</th>
+			</tr>
+		</table>
+	</div>
+	<div id="booForm">
+		<h1>BookStore App</h1>
+		<input type="number" min="1" max="100" id="txtId" placeholder="Enter ID of the Book"><br>
+		<input type="text" id="txtTitle" placeholder="Enter Title of the Book"><br>
+		<input type="number" id="txtPrice" placeholder="Enter Cost of the Book"><br>
+		<button id="Store">Save Book</button>
+	</div>
+
+	<script src="./Scripts/jquery.min.js"></script>
+	<script src="./Scripts/Javascript.js"></script>
+	<script type="text/javascript">
+		var store = new bookStore();			
+		$(document).ready(function(){
+			$("#Store").click(function(){
+				var id = $("#txtId").val();
+				var name = $("#txtTitle").val();
+				var cost = $("#txtPrice").val();
+				var bk = new book(id, name, cost);
+				store.addBook(bk);
+			})
+			$("#txtSearch").change(function(){
+				var title = $("#txtSearch").val();
+				var data = store.search(title);
+				$("table").find("tr:gt(0)").remove();
+				$.each(data, function(index, el) {
+					var row = '<tr><td>' + el.id;
+					row +='</td><td>' + el.title;	
+					row +='</td><td>' + el.price +'</td></tr>';	
+					$("table").append(row);
+				});
+			})
+		})
+	</script>
+</body>
+</html>
