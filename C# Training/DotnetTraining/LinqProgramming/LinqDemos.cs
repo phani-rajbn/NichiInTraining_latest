@@ -74,7 +74,7 @@ namespace LinqProgramming
       //displayDistinctDeptIds();
       //displayDeptsWithNames();
       //displayNamesByDeptName();//using group by clause...
-      convertToXml();
+      //convertToXml();
     }
 
     //Performing LINQ operations on XML doc is called as XLINQ...

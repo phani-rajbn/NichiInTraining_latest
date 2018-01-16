@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>LinqProgramming.LinqDemos</StartupObject>
+    <StartupObject>LinqProgramming.XLinqDemo</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -49,6 +49,7 @@
     <Compile Include="LinqDemos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XLinqDemos.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
