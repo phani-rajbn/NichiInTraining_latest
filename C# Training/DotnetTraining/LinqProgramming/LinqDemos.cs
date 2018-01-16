@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 namespace LinqProgramming
 {
   class Employee
@@ -15,7 +16,7 @@ namespace LinqProgramming
   {
     public static List<Employee> GetAllEmployees()
     {
-      var fileName = @"C:\Users\Phani Raj\Desktop\Current Training\C# Training\DotnetTraining\LinqProgramming\Employees.csv";
+      var fileName = @"../../Employees.csv";
       var reader = new StreamReader(fileName);
       List<Employee> tempList = new List<Employee>();
       while (!reader.EndOfStream)
@@ -38,8 +39,11 @@ namespace LinqProgramming
     static List<Employee> collection = DataComponent.GetAllEmployees();
     static void Main(string[] args)
     {
-
-
+      //Display all the names...
+      var names = from emp in collection
+                  select emp.EmpName;
+      foreach(var name in names)
+        Console.WriteLine(name);
     }
   }
 

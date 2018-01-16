@@ -4,3 +4,9 @@ C:\Users\Phani Raj\Desktop\Current Training\C# Training\DotnetTraining\LinqProgr
 C:\Users\Phani Raj\Desktop\Current Training\C# Training\DotnetTraining\LinqProgramming\obj\Debug\LinqProgramming.exe
 C:\Users\Phani Raj\Desktop\Current Training\C# Training\DotnetTraining\LinqProgramming\obj\Debug\LinqProgramming.pdb
 C:\Users\Phani Raj\Desktop\Current Training\C# Training\DotnetTraining\LinqProgramming\obj\Debug\LinqProgramming.csprojResolveAssemblyReference.cache
+C:\Users\Phani Raj\Desktop\Current Training\NichiInTraining\C# Training\DotnetTraining\LinqProgramming\bin\Debug\LinqProgramming.exe.config
+C:\Users\Phani Raj\Desktop\Current Training\NichiInTraining\C# Training\DotnetTraining\LinqProgramming\obj\Debug\LinqProgramming.exe
+C:\Users\Phani Raj\Desktop\Current Training\NichiInTraining\C# Training\DotnetTraining\LinqProgramming\obj\Debug\LinqProgramming.pdb
+C:\Users\Phani Raj\Desktop\Current Training\NichiInTraining\C# Training\DotnetTraining\LinqProgramming\bin\Debug\LinqProgramming.exe
+C:\Users\Phani Raj\Desktop\Current Training\NichiInTraining\C# Training\DotnetTraining\LinqProgramming\bin\Debug\LinqProgramming.pdb
+C:\Users\Phani Raj\Desktop\Current Training\NichiInTraining\C# Training\DotnetTraining\LinqProgramming\obj\Debug\LinqProgramming.csprojResolveAssemblyReference.cache
