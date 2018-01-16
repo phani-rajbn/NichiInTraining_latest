@@ -606,10 +606,4 @@
     <EmpAddress>Mysore</EmpAddress>
     <DeptID>3</DeptID>
   </Employee>
-  <Employee>
-    <EmpID>102</EmpID>
-    <EmpName>Phaniraj</EmpName>
-    <EmpAddress>Bangalore</EmpAddress>
-    <DeptID>6</DeptID>
-  </Employee>
 </AllEmployees>
