@@ -72,7 +72,7 @@ namespace LinqProgramming
       //displayNamesGroupedByAddress();
       //displayNamesByAlphabet();
       //displayDistinctDeptIds();
-      //displayDeptsWithNames();
+      displayDeptsWithNames();
       //displayNamesByDeptName();//using group by clause...
       //convertToXml();
     }

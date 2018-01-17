@@ -9,9 +9,9 @@ namespace LinqProgramming
     static void Main(string[] args)
     {
       //readXmlFile();
-      //readOnlyNames();
+      readOnlyNames();
       //insertNewRec();
-      deleteRecord();
+      //deleteRecord();
     }
 
     private static void deleteRecord()
@@ -39,7 +39,7 @@ namespace LinqProgramming
       //find the last Schema of Employee
       var lastRec = doc.Descendants("Employee").Last();
       //add the new element after the last Schema...
-      lastRec.AddBeforeSelf(newRec);
+      lastRec.AddAfterSelf(newRec);
       //save the document..
       doc.Save("AllEmployees.xml");
     }

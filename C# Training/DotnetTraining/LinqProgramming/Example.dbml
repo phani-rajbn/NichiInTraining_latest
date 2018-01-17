@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="NichiInDatabase" Class="ExampleDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=NichiInDatabase;Integrated Security=True" SettingsObjectName="LinqProgramming.Properties.Settings" SettingsPropertyName="NichiInDatabaseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.DeptTable" Member="DeptTables">
+    <Type Name="DeptTable">
+      <Column Name="DeptID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DeptName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="DeptTable_EmpTable" Member="EmpTables" ThisKey="DeptID" OtherKey="DeptId" Type="EmpTable" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EmpTable" Member="EmpTables">
+    <Type Name="EmpTable">
+      <Column Name="EmpID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EmpName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EmpAddress" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="DeptId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="DeptTable_EmpTable" Member="DeptTable" ThisKey="DeptId" OtherKey="DeptID" Type="DeptTable" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
