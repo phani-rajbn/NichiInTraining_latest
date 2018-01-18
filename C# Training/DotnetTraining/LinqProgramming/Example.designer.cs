@@ -83,6 +83,13 @@ namespace LinqProgramming
 				return this.GetTable<EmpTable>();
 			}
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InsertEmp")]
+		public int InsertEmp([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> empID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string empName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string empAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> deptID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), empID, empName, empAddress, deptID);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DeptTable")]

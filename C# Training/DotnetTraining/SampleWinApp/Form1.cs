@@ -7,21 +7,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SampleDll;
 
 namespace SampleWinApp
 {
-  public partial class Form1 : Form
+  public partial class CalcForm : Form
   {
-    public Form1()
+    public CalcForm()
     {
       InitializeComponent();
     }
 
-    private void btnClick_Click(object sender, EventArgs e)
+    private void onCheckedEvent(object sender, EventArgs e)
     {
-      FirstComponent component = new FirstComponent();
-      MessageBox.Show(component.WelcomeFunc());
+      
+      var rd = sender as RadioButton;
+      if (rd.Checked == false)
+        return;
+        var v1 = double.Parse(txtV1.Text);
+        var v2 = double.Parse(txtV2.Text);
+        var res = 0.0;
+        string content = string.Empty;
+        switch (rd.Text)
+        {
+          case "Add":
+            res = v1 + v2;
+            break;
+          case "Subtract":
+            res = v1 - v2;
+            break;
+          case "Multiply":
+            res = v1 * v2;
+            break;
+          default:
+            break;
+        }
+        content = string.Format($"The result of this operation is {res}");
+        MessageBox.Show(content);
     }
+    //Event handler is a function that is triggered by the program when the user performs the action 
   }
 }

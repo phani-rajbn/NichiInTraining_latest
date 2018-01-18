@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NichiInDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="DeptTable">
+    <Key>
+      <PropertyRef Name="DeptID" />
+    </Key>
+    <Property Name="DeptID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeptName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="EmpTables" Relationship="Self.FK_EmpTable_DeptTable" FromRole="DeptTable" ToRole="EmpTable" />
+  </EntityType>
+  <EntityType Name="EmpTable">
+    <Key>
+      <PropertyRef Name="EmpID" />
+    </Key>
+    <Property Name="EmpID" Type="Int32" Nullable="false" />
+    <Property Name="EmpName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmpAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DeptId" Type="Int32" />
+    <NavigationProperty Name="DeptTable" Relationship="Self.FK_EmpTable_DeptTable" FromRole="EmpTable" ToRole="DeptTable" />
+  </EntityType>
+  <Association Name="FK_EmpTable_DeptTable">
+    <End Role="DeptTable" Type="Self.DeptTable" Multiplicity="0..1" />
+    <End Role="EmpTable" Type="Self.EmpTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DeptTable">
+        <PropertyRef Name="DeptID" />
+      </Principal>
+      <Dependent Role="EmpTable">
+        <PropertyRef Name="DeptId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="NichiInDatabaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DeptTables" EntityType="Self.DeptTable" />
+    <EntitySet Name="EmpTables" EntityType="Self.EmpTable" />
+    <AssociationSet Name="FK_EmpTable_DeptTable" Association="Self.FK_EmpTable_DeptTable">
+      <End Role="DeptTable" EntitySet="DeptTables" />
+      <End Role="EmpTable" EntitySet="EmpTables" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

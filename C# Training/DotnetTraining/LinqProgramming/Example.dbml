@@ -16,4 +16,11 @@
       <Association Name="DeptTable_EmpTable" Member="DeptTable" ThisKey="DeptId" OtherKey="DeptID" Type="DeptTable" IsForeignKey="true" />
     </Type>
   </Table>
+  <Function Name="dbo.InsertEmp" Method="InsertEmp">
+    <Parameter Name="empID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="empName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="empAddress" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="deptID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

@@ -85,11 +85,17 @@ namespace LinqProgramming
 
     static void updateRecord()
     {
-
+      var context = new ExampleDataContext();
+      var rec = (from emp in context.EmpTables
+                 where emp.EmpID == 101
+                 select emp).FirstOrDefault();
+      rec.EmpAddress = "Dubai";
+      context.SubmitChanges();
     }
     static void readRecordsusingStoredProc()
     {
-
+      var context = new ExampleDataContext();
+      context.InsertEmp(103, "Suresh Gopi", "Chennai", 3); 
     }
     static void Main(string[] args)
     {
@@ -98,7 +104,9 @@ namespace LinqProgramming
         //bulkInsertion();
         //insertSingleRecord();
         //displayAllRecords();
-        deleteRecord();
+        //deleteRecord();
+        //updateRecord();
+        readRecordsusingStoredProc();
       }
       catch (Exception ex)
       {
