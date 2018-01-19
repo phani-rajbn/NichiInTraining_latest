@@ -49,7 +49,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>SampleConApp.DelegatesExample</StartupObject>
+    <StartupObject>SampleConApp.AsyncProgramming</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="SampleDll">
@@ -63,7 +63,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DelegatesDemo.cs" />
+    <Compile Include="AsyncProgramming.cs" />
+    <Compile Include="EventProgramming.cs" />
+    <Compile Include="Multithreading.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
