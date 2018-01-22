@@ -35,7 +35,7 @@ namespace SampleConApp
       Console.WriteLine("Main Program runnning......");
       Console.WriteLine("Into Async Function.....");
       Func<int, int> delFunc = InvokeFunc;
-      var res = delFunc.BeginInvoke(100, CallMe, null);
+      var res = delFunc.BeginInvoke(10, CallMe, null);
       mainBigJob();
       Console.WriteLine("Main has completed the task....");
       while(res.IsCompleted == false)
@@ -57,3 +57,16 @@ namespace SampleConApp
     }
   }
 }
+
+//Create a Table called Book-BookID, BookTitle, BookCost...
+/*
+DB Design: Create the table...
+Create a DLL project. Create a Entity class Book->BookID, Title, Cost
+Create a repository class->AddBook, FindBookByTitle, GetAllTitles, UpdateBookDetails
+Create the EDMX and do the job.... 
+Design the UI->Single Window.:Title, ListBox, 3 Text Boxes, 3 Buttons->Create new, update and Find...
+Handle the events and call the DAL Functions in the UI....
+  */
+//Create a DAL DLL and using Entity create a CRUD operations
+
+//Create a Win App and develop Master detail WIndowe...
