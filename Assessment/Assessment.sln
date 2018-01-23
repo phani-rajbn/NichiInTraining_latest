@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleConApp", "SampleConApp\SampleConApp.csproj", "{DFAE55A5-482A-49F0-925B-B22C673BE495}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductLibrary", "ProductLibrary\ProductLibrary.csproj", "{86725929-72CB-43AD-9F33-639B7008F92A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DFAE55A5-482A-49F0-925B-B22C673BE495}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFAE55A5-482A-49F0-925B-B22C673BE495}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFAE55A5-482A-49F0-925B-B22C673BE495}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFAE55A5-482A-49F0-925B-B22C673BE495}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86725929-72CB-43AD-9F33-639B7008F92A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86725929-72CB-43AD-9F33-639B7008F92A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86725929-72CB-43AD-9F33-639B7008F92A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86725929-72CB-43AD-9F33-639B7008F92A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,5 @@
+C:\Users\Phani Raj\Desktop\Current Training\C# Training\Assessment\ProductLibrary\bin\Debug\ProductLibrary.dll
+C:\Users\Phani Raj\Desktop\Current Training\C# Training\Assessment\ProductLibrary\bin\Debug\ProductLibrary.pdb
+C:\Users\Phani Raj\Desktop\Current Training\C# Training\Assessment\ProductLibrary\obj\Debug\ProductLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Phani Raj\Desktop\Current Training\C# Training\Assessment\ProductLibrary\obj\Debug\ProductLibrary.dll
+C:\Users\Phani Raj\Desktop\Current Training\C# Training\Assessment\ProductLibrary\obj\Debug\ProductLibrary.pdb
